@@ -1,0 +1,215 @@
+// Carousel and Modal functionality
+const carouselImages = ['medias/mokup1.png', 'medias/mokup2.png', 'medias/mokup3.png'];
+const captions = ["Ma p'tite plante (maquette web app Figma)", 'Maquette de la version mobile de mon portfolio', "Koro'Goût - API REST de recettes de Zelda entièrement fonctionnelle"];
+let currentSlide = 0;
+
+function sendComment() {
+  const comment = document.getElementById('commentInput').value.trim();
+  if (!comment) {
+    alert('Veuillez écrire un commentaire avant de le poster.');
+    return;
+  }
+  const subject = encodeURIComponent('Avis sur Gabriel Muller - Stage 3 mois');
+  const body = encodeURIComponent(`Bonjour Gabriel,\n\n${comment}\n\nCordialement`);
+  window.location.href = `mailto:gabmuller2111@proton.me?subject=${subject}&body=${body}`;
+}
+
+function changeSlide(index) {
+  currentSlide = index;
+  document.getElementById('carousel-img').src = carouselImages[index];
+  document.querySelectorAll('.carousel-thumb').forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === index);
+  });
+}
+
+function openModal(index) {
+  const modal = document.getElementById('imageModal');
+  document.getElementById('modal-img').src = carouselImages[index];
+  document.getElementById('modal-caption').textContent = captions[index];
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('imageModal').classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+
+document.getElementById('imageModal').addEventListener('click', (e) => {
+  if (e.target.id === 'imageModal') closeModal();
+});
+
+// Hide/show nav on scroll down/up
+(function() {
+  const nav = document.querySelector('nav');
+  let lastScroll = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const current = window.scrollY;
+    const delta = current - lastScroll;
+    if (current > 80 && delta > 2) {
+      nav.classList.add('hide');
+    } else if (delta < -2) {
+      nav.classList.remove('hide');
+    }
+    lastScroll = current;
+  });
+})();
+
+// Translations object - You can replace this with fetch('translations.json') to load from external file
+const translations = {
+  fr: {
+    'tagline': '🎮 THE DEVELOPER – Action/Adventure RPG',
+    'reviews': '(2,547 avis positifs)',
+    'summary': 'Je m\'appelle Gabriel, étudiant passionné par l\'informatique, la programmation et les nouvelles technologies. Curieux et motivé, j\'aime travailler sur des projets variés, apprendre constamment et relever de nouveaux défis.',
+    'discover': 'À Découvrir',
+    'hire': 'Embaucher',
+    'download-cv': 'Télécharger le CV',
+    'add-favorites': '📌 Ajouter aux Favoris',
+    'comments-title': '💬 Avis de la Communauté',
+    'location': 'Localisation:',
+    'status': 'Status:',
+    'screens-title': '📸 Galerie d\'Écrans',
+    'screen-1': "Ma p'tite plante (maquette web app Figma)",
+    'screen-2': 'Maquette de la version mobile de mon portfolio',
+    'screen-3': "Koro's Quest - API REST Zelda entièrement fonctionnelle",
+    'screen-4': '3D & Game Dev',
+    'screen-5': 'Expériences',
+    'screen-6': 'Langues & Intérêts',
+    'features-title': '🎯 Compétences Principales',
+    'web-dev': '💻 Développement Web',
+    'graphic-design': '🎨 Design Graphique',
+    '3d-gamedev': '🎮 3D & Game Dev',
+    'requirements-title': '⚙️ Configuration Requise',
+    'minimum': 'Minimal',
+    'recommended': 'Recommandée',
+    'passion': 'Passion:',
+    'passion-text': 'Pour la tech & innovation',
+    'availability': 'Disponibilité:',
+    'availability-text': 'Stage de 3 mois (recherche en cours)',
+    'location-req': 'Localisation:',
+    'location-text': 'Grand Est (Remote OK)',
+    'languages': 'Langues:',
+    'languages-text': 'Français, Anglais, Allemand',
+    'level': 'Niveau:',
+    'level-text': 'MMI 3',
+    'exp': 'Expérience:',
+    'exp-text': '3+ ans en développement',
+    'team': 'Travail en équipe:',
+    'team-text': 'Agile & Scrum',
+    'projects': 'Projets perso:',
+    'projects-text': 'Portfolio actif',
+    'available-title': '🎯 Actuellement disponibile',
+    'available-text': 'Recherche activement un stage de 3 mois en développement web, design ou game dev',
+    'footer': '© 2026 Gabriel Muller · Tous droits réservés '
+  },
+  en: {
+    'tagline': '🎮 THE DEVELOPER – Action/Adventure RPG',
+    'reviews': '(2,547 positive reviews)',
+    'summary': 'I\'m Gabriel, a student passionate about computing, programming and new technologies. Curious and motivated, I enjoy working on varied projects, constantly learning and taking on new challenges.',
+    'discover': 'Discover',
+    'hire': 'Hire',
+    'download-cv': 'Download CV',
+    'add-favorites': '📌 Add to Favorites',
+    'comments-title': '💬 Community Reviews',
+    'location': 'Location:',
+    'status': 'Status:',
+    'screens-title': '📸 Screenshots Gallery',
+    'screen-1': "My Little Plant (web app mockup from Figma course)",
+    'screen-2': 'Mockup of my portfolio mobile version',
+    'screen-3': "Koro's Taste - Fully functional Zelda-themed recipe REST API",
+    'screen-4': '3D & Game Dev',
+    'screen-5': 'Experiences',
+    'screen-6': 'Languages & Interests',
+    'features-title': '🎯 Main Skills',
+    'web-dev': '💻 Web Development',
+    'graphic-design': '🎨 Graphic Design',
+    '3d-gamedev': '🎮 3D & Game Dev',
+    'requirements-title': '⚙️ System Requirements',
+    'minimum': 'Minimum',
+    'recommended': 'Recommended',
+    'passion': 'Passion:',
+    'passion-text': 'For tech & innovation',
+    'availability': 'Availability:',
+    'availability-text': '3-month internship (currently searching)',
+    'location-req': 'Location:',
+    'location-text': 'Grand Est (Remote OK)',
+    'languages': 'Languages:',
+    'languages-text': 'French, English, German',
+    'level': 'Level:',
+    'level-text': 'MMI 3',
+    'exp': 'Experience:',
+    'exp-text': '3+ years in development',
+    'team': 'Teamwork:',
+    'team-text': 'Agile & Scrum',
+    'projects': 'Personal projects:',
+    'projects-text': 'Active portfolio',
+    'available-title': '🎯 Currently Available',
+    'available-text': 'Actively seeking a 3-month internship in web development, design or game dev',
+    'footer': '© 2026 Gabriel Muller · All rights reserved'
+  },
+  de: {
+    'tagline': '🎮 THE DEVELOPER – Action/Adventure RPG',
+    'reviews': '(2.547 positive Bewertungen)',
+    'summary': 'Ich bin Gabriel, Student mit Leidenschaft für Informatik, Programmierung und neue Technologien. Neugierig und motiviert arbeite ich gerne an verschiedenen Projekten, lerne ständig und stelle mich neuen Herausforderungen.',
+    'discover': 'Entdecken',
+    'hire': 'Anstellen',
+    'download-cv': 'Lebenslauf herunterladen',
+    'add-favorites': '📌 Zu Favoriten hinzufügen',
+    'comments-title': '💬 Community-Bewertungen',
+    'location': 'Standort:',
+    'status': 'Status:',
+    'screens-title': '📸 Screenshot-Galerie',
+    'screen-1': "Meine kleine Pflanze (Web-App-Mockup aus Figma-Kurs)",
+    'screen-2': 'Mockup der mobilen Version meines Portfolios',
+    'screen-3': "Koro's Geschmack - Vollständig funktionsfähige Zelda-Themen-Rezept-REST-API",
+    'screen-4': '3D & Game Dev',
+    'screen-5': 'Erfahrungen',
+    'screen-6': 'Sprachen & Interessen',
+    'features-title': '🎯 Hauptfähigkeiten',
+    'web-dev': '💻 Webentwicklung',
+    'graphic-design': '🎨 Grafikdesign',
+    '3d-gamedev': '🎮 3D & Game Dev',
+    'requirements-title': '⚙️ Systemanforderungen',
+    'minimum': 'Minimal',
+    'recommended': 'Empfohlen',
+    'passion': 'Leidenschaft:',
+    'passion-text': 'Für Tech & Innovation',
+    'availability': 'Verfügbarkeit:',
+    'availability-text': '3-Monats-Praktikum (aktiv auf der Suche)',
+    'location-req': 'Standort:',
+    'location-text': 'Grand Est (Remote OK)',
+    'languages': 'Sprachen:',
+    'languages-text': 'Französisch, Englisch, Deutsch',
+    'level': 'Level:',
+    'level-text': 'MMI 3',
+    'exp': 'Erfahrung:',
+    'exp-text': '3+ Jahre in der Entwicklung',
+    'team': 'Teamarbeit:',
+    'team-text': 'Agile & Scrum',
+    'projects': 'Persönliche Projekte:',
+    'projects-text': 'Aktives Portfolio',
+    'available-title': '🎯 Derzeit verfügbar',
+    'available-text': 'Aktive Suche nach einem 3-monatigen Praktikum in Webentwicklung, Design oder Game Dev',
+    'footer': '© 2026 Gabriel Muller · Alle Rechte vorbehalten'
+  }
+};
+
+function setLanguage(lang) {
+  localStorage.setItem('cv-lang', lang);
+  document.querySelectorAll('.lang-toggle button').forEach(btn => btn.classList.remove('active'));
+  document.getElementById('btn-' + lang).classList.add('active');
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+}
+
+// Initialize language on page load
+const savedLang = localStorage.getItem('cv-lang') || 'fr';
+setLanguage(savedLang);

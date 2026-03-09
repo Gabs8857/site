@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explorez une planète interactive en 3D avec des détails sur les continents.">
+    <meta name="keywords" content="planète interactive, 3D, continents, détails, exploration, portfolio, Gabriel, développeur web">
+    <meta name="author" content="Gabriel - Développeur Web">
+    <title>Gabriel's Universe</title>
+    <link rel="stylesheet" href="../css/style.css?v=2.0">
+    <link rel="shortcut icon" href="../toggle.png" type="image/png">
+</head>
+<body>
+    <!-- Vue Galaxie -->
+    <button class="animation-pause-btn" id="animation-pause-btn" aria-label="Pause">&#9208;</button>
+    <div class="controls">
+        <p>Clic gauche + mouvement: Rotation | Molette: Zoom | Clic: Details</p>
+    </div>
+    <!-- Vue Detail (Modal) -->
+    <div id="detail-view" class="detail-page">
+        <div class="detail-header">
+            <button class="back-btn" onclick="hideDetailView()">&#8592;</button>
+        </div>
+        <div class="detail-main">
+            <div class="detail-canvas-container" id="detail-canvas"></div>
+            <div class="detail-sidebar">
+                <h2 id="detail-title">Sélection d'un continent</h2>
+                <div id="detail-info">
+                    <p id="detail-description" style="color: #888; font-size: 14px;">Cliquez sur un segment de la planète</p>
+                    <div id="skill-encart" class="skill-encart" aria-hidden="true">
+                        <button class="skill-encart-close" onclick="hideSkillEncart()" aria-label="Fermer">&#10005;</button>
+                        <div class="skill-encart-tag" id="skill-encart-planet"></div>
+                        <h3 class="skill-encart-title" id="skill-encart-name"></h3>
+                        <div class="skill-encart-continent" id="skill-encart-continent"></div>
+                        <p class="skill-encart-desc" id="skill-encart-desc"></p>
+                    </div>
+                    <div id="detail-continent-cards" class="detail-continent-cards"></div>
+                </div>
+                <!-- Encart skill supprimé ici, déplacé inline ci-dessus -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Données & géométrie -->
+    <script src="../js/data.js"></script>
+    <script src="../js/geometry.js"></script>
+    <!-- Scène / objets 3D -->
+    <script src="../js/scene.js"></script>
+    <script src="../js/asteroids.js"></script>
+    <script src="../js/planets.js"></script>
+    <!-- Logique -->
+    <script src="../js/animation.js"></script>
+    <script src="../js/detail.js"></script>
+    <script src="../js/controls.js"></script>
+    <script src="../js/labels.js"></script>
+    <!-- Point d'entrée -->
+    <script src="../js/main.js"></script>
+</body>
+</html>

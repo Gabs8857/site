@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>Gabriel Muller – The Developer Game | Portfolio Étudiant MMI</title>
+  <meta name="title" content="Gabriel Muller – The Developer Game | Portfolio Étudiant MMI">
+  <meta name="description" content="Étudiant passionné en MMI 3 spécialisé en développement web, design graphique et game dev. Recherche activement un stage de 3 mois. Compétences : React, Vue.js, PHP, Figma, Unreal Engine 5.">
+  <meta name="keywords" content="Gabriel Muller, développeur web, MMI, stage développement, design graphique, game dev, React, Vue.js, PHP, Figma, Unreal Engine, portfolio étudiant, Grand Est">
+  <meta name="author" content="Gabriel Muller">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="French">
+  <meta name="theme-color" content="#1e90ff">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gabrielmuller.dev/">
+  <meta property="og:title" content="Gabriel Muller – The Developer Game">
+  <meta property="og:description" content="Étudiant MMI 3 passionné par le développement web, design et game dev. Recherche stage de 3 mois.">
+  <meta property="og:image" content="https://gabrielmuller.dev/medias/avatar.png">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="de_DE">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://gabrielmuller.dev/">
+  <meta property="twitter:title" content="Gabriel Muller – The Developer Game">
+  <meta property="twitter:description" content="Étudiant MMI 3 passionné par le développement web, design et game dev. Recherche stage de 3 mois.">
+  <meta property="twitter:image" content="https://gabrielmuller.dev/medias/avatar.png">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://gabrielmuller.dev/">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="lang-toggle lang-fixed">
+    <button onclick="setLanguage('fr')" id="btn-fr" class="active">🇫🇷</button>
+    <button onclick="setLanguage('en')" id="btn-en">🇬🇧</button>
+    <button onclick="setLanguage('de')" id="btn-de">🇩🇪</button>
+  </div>
+
+  <nav>
+    <div class="nav-container">
+      <a class="nav-logo" href="#">IUT Saint-Dié</a>
+      <ul class="nav-menu">
+        <li><a href="#hero">MAGASIN</a></li>
+        <li><a href="#screens">BIBLIOTHÈQUE</a></li>
+        <li><a href="#features">COMMUNAUTÉ</a></li>
+        <li><a href="#requirements">MMI_Game/dev</a></li>
+      </ul>
+      <div class="nav-user"> MMI_Game/dev</div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- HERO BANNER -->
+    <div class="hero" id="hero">
+      <h1 class="hero-title">Gabriel Muller</h1>
+      <p class="hero-subtitle" >THE DEVELOPER – Action/Adventure RPG</p>
+    </div>
+
+    <!-- GAME HEADER -->
+    <div class="game-header">
+      <div>
+        <!-- CAROUSEL -->
+        <div class="carousel-section">
+          <div class="carousel-main">
+            <img id="carousel-img" src="medias/mokup1.png" alt="Screenshot" onclick="openModal(currentSlide)">
+          </div>
+          <div class="carousel-nav">
+            <div class="carousel-thumb active" onclick="changeSlide(0)">
+              <img src="medias/mokup1.png" alt="Thumb 1">
+            </div>
+            <div class="carousel-thumb" onclick="changeSlide(1)">
+              <img src="medias/mokup2.png" alt="Thumb 2">
+            </div>
+            <div class="carousel-thumb" onclick="changeSlide(2)">
+              <img src="medias/mokup3.png" alt="Thumb 3">
+            </div>
+          </div>
+        </div>
+
+        <!-- INFO -->
+        <div class="header-info">
+          <h1>Gabriel Muller: The Developer</h1>
+          
+          <div class="rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-text" data-i18n="reviews">(2,547 avis positifs)</span>
+          </div>
+
+          <p class="description" data-i18n="summary">
+            Je m'appelle Gabriel, étudiant passionné par l'informatique, la programmation et les nouvelles technologies. Curieux et motivé, j'aime travailler sur des projets variés, apprendre constamment et relever de nouveaux défis.
+          </p>
+
+          <div class="badges">
+            <span class="badge featured">Full-Stack Developer</span>
+            <span class="badge">Designer</span>
+            <span class="badge featured"> Game Dev</span>
+            <span class="badge">Innovateur</span>
+            <span class="badge featured"> Team Player</span>
+            <span class="badge">Problem Solver</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-box">
+        <img src="medias/avatar.png" alt="Avatar Gabriel">
+        <div class="price" data-i18n="discover">À Découvrir</div>
+        <button class="buy-btn" data-i18n="hire" onclick="window.location.href='mailto:gabmuller2111@proton.me?subject=Stage%203%20mois%20-%20Gabriel%20Muller&body=Bonjour%20Gabriel%2C%0A%0AJe%20souhaite%20discuter%20d%27un%20stage%20de%203%20mois.%0A%0AMerci%20%21'">Embaucher</button>
+        <a class="buy-btn cv-download" data-i18n="download-cv" href="CV%203.0.pdf" download>Télécharger le CV</a>
+        <button class="wishlist-btn" data-i18n="add-favorites"></button>Ajouter aux Favoris</button>
+        <div class="info-box">
+          <div class="info-item">
+            <strong data-i18n="location">Localisation:</strong><br>Grand Est, France
+          </div>
+          <div class="info-item">
+            <strong data-i18n="status">Status:</strong><br><span class="status-active">● Étudiant Actif</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURES -->
+ 
+    <!-- FEATURES -->
+    <div class="features-section" id="features">
+      <h2 class="section-title" data-i18n="features-title"> Compétences Principales</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3 data-i18n="web-dev"> Développement Web</h3>
+          <ul>
+            <li>HTML5 & CSS3</li>
+            <li>JavaScript & TypeScript</li>
+            <li>React & Vue.js</li>
+            <li>PHP & Symfony</li>
+            <li>MySQL</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <h3 data-i18n="graphic-design"> Design Graphique</h3>
+          <ul>
+            <li>Figma</li>
+            <li>Photoshop</li>
+            <li>Illustrator</li>
+            <li>Première Pro</li>
+            <li>After Effects</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <h3 data-i18n="3d-gamedev"> 3D & Game Dev</h3>
+          <ul>
+            <li>Unreal Engine 5</li>
+            <li>Blueprint</li>
+            <li>Unity & C#</li>
+            <li>Blender 3D</li>
+            <li>3D Modeling</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SYSTEM REQUIREMENTS -->
+    <div class="requirements-section" id="requirements">
+      <h2 class="section-title" data-i18n="requirements-title"> Configuration Requise</h2>
+      <div class="requirements-grid">
+        <div class="requirement-box">
+          <h3 data-i18n="minimum">Minimal</h3>
+          <p><strong data-i18n="passion">Passion:</strong> <span data-i18n="passion-text">Pour la tech & innovation</span></p>
+          <p><strong data-i18n="availability">Disponibilité:</strong> <span data-i18n="availability-text">Stage de 3 mois (recherche en cours)</span></p>
+          <p><strong data-i18n="location-req">Localisation:</strong> <span data-i18n="location-text">Grand Est (Remote OK)</span></p>
+          <p><strong data-i18n="languages">Langues:</strong> <span data-i18n="languages-text">Français, Anglais, Allemand</span></p>
+        </div>
+        <div class="requirement-box">
+          <h3 data-i18n="recommended">Recommandée</h3>
+          <p><strong data-i18n="level">Niveau:</strong> <span data-i18n="level-text">MMI 3</span></p>
+          <p><strong data-i18n="exp">Expérience:</strong> <span data-i18n="exp-text">3+ ans en développement</span></p>
+          <p><strong data-i18n="team">Travail en équipe:</strong> <span data-i18n="team-text">Agile & Scrum</span></p>
+          <p><strong data-i18n="projects">Projets perso:</strong> <span data-i18n="projects-text">Portfolio actif</span></p>
+        </div>
+      </div>
+    </div>
+    <!-- COMMENTAIRES / AVIS -->
+    <div class="features-section section-padded">
+      <h2 class="section-title" data-i18n="comments-title"> Avis de la Communauté</h2>
+      <div class="comments-container">
+        <div class="feature-card review-card">
+          <div class="review-header">
+            <div>
+              <strong class="review-author"> TechRecruiter_2025</strong>
+              <div class="review-meta">8 semaines de collaboration · InSIC</div>
+            </div>
+            <span class="review-badge"> Recommandé</span>
+          </div>
+          <p class="review-text">
+            "Excellent stagiaire ! Gabriel a fait preuve d'une grande autonomie durant ses 8 semaines chez nous. Ses compétences en communication et sa capacité à apprendre rapidement sont impressionnantes. Je recommande vivement !"
+          </p>
+          <div class="review-rating">⭐⭐⭐⭐⭐ 5/5</div>
+        </div>
+
+        <div class="feature-card review-card">
+          <div class="review-header">
+            <div>
+              <strong class="review-author"> Chef_Chantier_Pro</strong>
+              <div class="review-meta">2 mois · Été 2023-2025</div>
+            </div>
+            <span class="review-badge"> Recommandé</span>
+          </div>
+          <p class="review-text">
+            "Un vrai bosseur ! Gabriel a montré une résilience exceptionnelle et un sens des responsabilités rare. Toujours à l'heure, motivé et prêt à apprendre. Le genre de personne qu'on aimerait garder dans l'équipe !"
+          </p>
+          <div class="review-rating">⭐⭐⭐⭐⭐ 5/5</div>
+        </div>
+
+        <div class="feature-card review-card">
+          <div class="review-header">
+            <div>
+              <strong class="review-author"> DevTeam_MMI</strong>
+              <div class="review-meta">Collaboration académique · 2023-2026</div>
+            </div>
+            <span class="review-badge"> Recommandé</span>
+          </div>
+          <p class="review-text">
+            "Super coéquipier ! Gabriel maîtrise à la fois le dev, le design et la 3D. Ses projets sont toujours propres et bien pensés. En plus, il a un excellent esprit d'équipe. Hâte de travailler encore avec lui ! 🎮✨"
+          </p>
+          <div class="review-rating">⭐⭐⭐⭐⭐ 5/5</div>
+        </div>
+
+        <div class="availability-banner">
+          <div class="availability-title" data-i18n="available-title"> Actuellement disponible</div>
+          <p class="availability-text" data-i18n="available-text">Recherche activement un stage de 3 mois en développement web, design ou game dev</p>
+        </div>
+
+        <!-- ZONE DE COMMENTAIRE -->
+        <div class="feature-card review-card comment-form">
+          <h3 class="comment-form-title"> Laisser un avis</h3>
+          <textarea id="commentInput" placeholder="Vous aussi, recrutez-moi pour une durée de trois mois..."></textarea>
+          <button class="submit-btn" onclick="sendComment()">Poster le commentaire</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p data-i18n="footer">© 2026 Gabriel Muller · Tous droits réservés</p>
+  </footer>
+
+  <!-- MODAL FULLSCREEN -->
+  <div id="imageModal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <img id="modal-img" class="modal-image" src="" alt="Screenshot">
+      <div class="modal-text">
+        <p id="modal-caption">Ma p'tite plante (maquette web app Figma)</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

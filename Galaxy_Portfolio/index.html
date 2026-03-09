@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explorez la galaxie de Gabriel, un portfolio interactif en 3D qui présente les compétences et les passions de Gabriel à travers des planètes en orbite. Cliquez sur les continents pour découvrir chaque domaine d'expertise.">
+    <meta name="keywords" content="galaxie, portfolio interactif, 3D, compétences, Gabriel, développeur web, Three.js">
+    <meta name="author" content="Gabriel - Développeur Web">
+    <link rel="stylesheet" href="css/style_landing.css">
+    <link rel="shortcut icon" href="toggle.png" type="image/png">
+    <title>Gabriel's Universe</title>
+   
+</head>
+<body>
+
+    <div class="glow-bg" aria-hidden="true"></div>
+    <div class="stars" id="stars" aria-hidden="true"></div>
+    <main class="landing">
+        <p class="landing__eyebrow">Portfolio interactif 3D</p>
+        <h1 class="landing__title">Gabriel's<br>Universe</h1>
+        <p class="landing__subtitle">
+            Explorez un système solaire où chaque planète représente un domaine de compétences.
+            Orbites, astéroïdes et continents interactifs vous attendent.
+        </p>
+        <a class="enter-btn" href="pages/galaxy.html">
+            Entrer dans la galaxie
+            <span class="enter-btn__arrow">→</span>
+        </a>
+        <p class="landing__hint"><a href="https://threejs.org/" target="_blank" rel="noopener noreferrer" class="landing__link">Three.js</a> · <a href="https://developer.mozilla.org/fr/docs/Web/API/WebGL_API" target="_blank" rel="noopener noreferrer" class="landing__link">WebGL</a> · <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" class="landing__link"> JavaScript</a></p>
+    </main>
+
+    <script>
+        (function () {
+            const container = document.getElementById('stars');
+            const COUNT = 200;
+            const frag = document.createDocumentFragment();
+            for (let i = 0; i < COUNT; i++) {
+                const s = document.createElement('span');
+                const size = Math.random() * 2 + 0.5;
+                s.style.cssText = [
+                    `width:${size}px`,
+                    `height:${size}px`,
+                    `top:${Math.random() * 100}%`,
+                    `left:${Math.random() * 100}%`,
+                    `animation-duration:${(Math.random() * 4 + 2).toFixed(1)}s`,
+                    `animation-delay:${(Math.random() * 6).toFixed(1)}s`,
+                    `opacity:${(Math.random() * 0.5 + 0.1).toFixed(2)}`
+                ].join(';');
+                frag.appendChild(s);
+            }
+            container.appendChild(frag);
+        })();
+    </script>
+</body>
+</html>
