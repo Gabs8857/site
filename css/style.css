@@ -1,0 +1,189 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: #0a0015;
+    color: #e0d0ff;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* Étoiles */
+.stars {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 20% 40%, rgba(60, 220, 228, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(91, 218, 250, 0.08) 0%, transparent 50%);
+    z-index: 0;
+    pointer-events: none;
+}
+.stars::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 55%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 25%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 70%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 40%, rgba(255,255,255,0.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 45% 85%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 92% 10%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 5%  90%, rgba(255,255,255,0.4) 0%, transparent 100%);
+}
+
+main {
+    position: relative;
+    z-index: 1;
+    width: min(700px, 92vw);
+    padding: 80px 0 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+}
+
+/* Header */
+header {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff66ff, #aa44ff, #6699ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+}
+
+.tagline {
+    margin-top: 12px;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #b09ad0;
+    letter-spacing: 0.04em;
+}
+
+/* Section projets */
+.projects {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #aa66ff;
+    margin-bottom: 4px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 26px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(170,100,255,0.2);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s;
+    backdrop-filter: blur(6px);
+}
+
+.card:hover {
+    background: rgba(170,100,255,0.12);
+    border-color: rgba(255,100,255,0.5);
+    transform: translateY(-2px);
+}
+
+.card-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.card-body {
+    flex: 1;
+}
+
+.card-body h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #e8d0ff;
+    margin-bottom: 4px;
+}
+
+.card-body p {
+    font-size: 0.88rem;
+    color: #9a80c0;
+    line-height: 1.5;
+}
+
+.card-arrow {
+    font-size: 1.3rem;
+    color: #aa66ff;
+    opacity: 0.6;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.card:hover .card-arrow {
+    opacity: 1;
+    transform: translateX(4px);
+}
+
+/* Bouton CV */
+.cv-btn {
+    display: inline-block;
+    padding: 14px 36px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #aa44ff, #ff66ff);
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    box-shadow: 0 0 24px rgba(200,100,255,0.35);
+    transition: box-shadow 0.25s, transform 0.2s;
+}
+
+.cv-btn:hover {
+    box-shadow: 0 0 40px rgba(255,100,255,0.55);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    padding: 24px;
+    font-size: 0.78rem;
+    color: #5a4a7a;
+    border-top: 1px solid rgba(170,100,255,0.1);
+}
